@@ -6,6 +6,5 @@ La criptografía (del griego κρύπτos (kryptós), «oculto», y γραφή (
 * [Tipos de criptografía](guia/Tiposcriptografía.rst)
 * [Hacer que gpg pida la clave por la tty](guia/GPGclavetty.rst)
 * [GPG: cifra, firma y envía datos](guia/GPG.rst)
-
 * [Instalar Gpg4win y Kleopatra para Windows](guia/Installgpg4winkleopatra.rst)
 * [Como encriptar Gpg4win y Kleopatra para Windows](guia/gpg4winkleopatra.rst)
