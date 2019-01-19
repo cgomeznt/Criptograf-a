@@ -44,7 +44,7 @@ Verificamos el archivo creado con gpg::
 	$ ls
 	miarchivo.txt miarchivo.txt.gpg
 	$ cat miarchivo-txt.gpg
-	  ���c���s���O\̙�"���Ff���H�0_#�j��u8�ի�.m�-�x�#k����kg9+�*ZP��4�{��H
+	  ���c���s���O\̙�"���Ff���H�0
 	$ file miarchivo-txt
 	miarchivo.txt: ASCII text
 	$ file miarchivo.txt.gpg 
@@ -144,6 +144,7 @@ El objetivo de esta pareja de claves es que cualquiera nos pueda mandar un archi
 Este archivo ahora se puede difundir por el medio que queramos, tenemos que tener en cuenta que el único problema de seguridad que habría en difundir la clave es que alguien se hiciese pasar por otro al mandarnos un mensaje, algo que pasaría igual si no estuviese cifrado, por eso el que nos envíe algo lo debería de firmar (si fuese pertinente).
 
 **Subir una clave pública a un servidor de claves**
+
 Los servidores de claves suelen ser de acceso público (al no haber mucho problema por difundir una clave pública) y en este caso subiremos una clave a los servidores del MIT (pgp.mit.edu) usando el comando gpg --send-keys --keyserver [Dirección del servidor] [ID de la clave pública] (al igual que antes la ID es 416B2447FDF6B692580E3E1B0E10642DA44DDE86).
 
 Debe tener instalado este paquete::
@@ -157,16 +158,18 @@ Ahora si continuamos, si no tenemos un keyserver lo buscamos en Google y continu
 
 A partir de este momento la clave estará accesible desde este servidor específico.
 
-**Importar la clave desde el archivo o servidor de claves**
+**Importar la clave desde el archivo**
+
 Para poder usar la clave pública para cifrar o comprobar la identidad del remitente tenemos que importar previamente la clave, desde un archivo debemos de usar el comando gpg --import [Archivo de la clave pública] (el que hemos descargado anteriormente).::
 
-$ gpg --import cgomezntPUB.gpg 
-gpg: key 0E10642DA44DDE86: "Carlos Gomez <cgomeznt@gmail.com>" imported
-gpg: Total number processed: 1
-gpg:              unchanged: 1
+	$ gpg --import cgomezntPUB.gpg 
+	gpg: key 0E10642DA44DDE86: "Carlos Gomez <cgomeznt@gmail.com>" imported
+	gpg: Total number processed: 1
+	gpg:              unchanged: 1
 
 
 **Importar la clave desde servidor de claves**
+
 Para poder usar la clave pública para cifrar o comprobar la identidad del remitente tenemos que importar previamente la clave, ddebemos de usar el comando gpg --keyserver [Servidor de claves] (el que hemos descargado anteriormente) --recv-key [ID de la clave pub].::
 
 	$ gpg --keyserver http://keyserver.mattrude.com --recv-key 416B2447FDF6B692580E3E1B0E10642DA44DDE86
@@ -186,6 +189,7 @@ Consultamos nuestro repositorio local::
 
 
 **Cifrar con la clave pública**
+
 Ahora tenemos que pensar que hemos importado una clave pública, por ejemplo de nuestro jefe y tenemos que mandarle un documento, para cifrar el documento usaremos el comando gpg —encrypt —recipient [ID de la clave] [Archivo]::
 
 	$ echo "Generando un archivo de prueba para encriptarlo" > documento.txt
@@ -211,6 +215,7 @@ Ahora tenemos que pensar que hemos importado una clave pública, por ejemplo de 
 Y ya tenemos el archivo listo para mandarlo de forma segura.
 
 **Descifrar un archivo con la clave privada**
+
 Y ahora es el momento de descifrar con nuestra clave privada el documento tras recibirlo, con el comando gpg -d [Archivo] e introduciendo la contraseña que creamos para salvaguardar la clave privada.::
 
 	$ gpg -d documento.txt.gpg 
@@ -244,6 +249,7 @@ Una de las medidas de seguridad básicas al pasar un mensaje es asegurarnos que 
 	��������'�����^��$��̢��"��������E��e�
 
 **Verificar y descifrar un archivo firmado**
+
 Cualquiera con la clave pública asociada a la que ha firmado el documento puede leerlo, de la misma forma que desciframos un archivo (gpg -d [Archivo]) o verificándolo únicamente con el comando gpg --verify [Archivo].::
 
 	$ gpg --verify firmar.txt.gpg 
