@@ -33,6 +33,6 @@ GPG fue desarrollado por Werner Koch y lanzado en 1999 como una alternativa al p
 
 **PGP:** Es una solución de encriptación patentada por Symantec.
 
-**GPG: Es otra solución popular que sigue los estándares de OpenPGP y provee una interfaz para que los usuarios puedan fácilmente encriptar sus archivos.
+**GPG:** Es otra solución popular que sigue los estándares de OpenPGP y provee una interfaz para que los usuarios puedan fácilmente encriptar sus archivos.
 
 

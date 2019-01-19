@@ -4,4 +4,7 @@ La criptografía (del griego κρύπτos (kryptós), «oculto», y γραφή (
 
 * [Diferencia OpenPGP, PGP, y GPG](guia/diferencias.rst)
 * [Tipos de criptografía](guia/Tiposcriptografía.rst)
+* [Hacer que gpg pida la clave por la tty](guia/GPGclavetty.rst)
+* [GPG: cifra, firma y envía datos](guia/GPG.rst)
+
 
